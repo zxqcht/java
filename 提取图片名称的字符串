@@ -1,0 +1,13 @@
+public class Compound{
+    public static void main(String[] args){
+        String s = "<p><img src=\"http://static.jhlnh.com/goods/201712/ad2564316c7941e989a420a857a335e3.jpg\" style=\"float:left;\" title=\"20171213_102317_000.jpg\"/></p><p><img src=\"http://static.jhlnh.com/goods/201712/b24f2b4c52c54beb94ac51bbb8b2be35.jpg\" style=\"float:left;\" title=\"20171213_102317_002.jpg\"/></p><p><img src=\"http://static.jhlnh.com/goods/201712/dcb0e87cee9141cf914023f44d8bafcb.jpg\" style=\"float:left;\" title=\"20171213_102317_003.jpg\"/></p><p><img src=\"http://static.jhlnh.com/goods/201712/828688facd6f48b5ba6fec6706042799.jpg\" style=\"float:left;\" title=\"20171213_102317_004.jpg\"/>";
+        String l = ".jpg";
+        int index=0,i=0;
+        String[] x=s.split("\"");
+        for(i=0;i<x.length;i++){
+            if(x[i].contains(l)){
+                System.out.println(x[i]);
+            }
+        }
+    }
+}
