@@ -1,0 +1,38 @@
+import java.util.Arrays;
+class Mystack1<T> {
+    private Object[] stack;
+    private int size;
+    Mystack1() {
+        stack = new Object[10];
+    }
+    public boolean isEmpty() {
+        return size == 0;
+    }
+    public T peek() {
+        T t = null;
+        if (size > 0)
+            t = (T) stack[size - 1];
+        return t;
+    }
+
+    public void push(T t) {
+        stack[size] = t;
+        size++;
+    }
+    public T pop() {
+        T t = peek();
+        if (size > 0){
+            stack[size - 1] = null;
+            size--;
+        }
+        return t;
+    }
+}
+public class test{
+    public static void main(String[] args){
+        Mystack1 stack =new Mystack1();
+        System.out.println(stack.isEmpty());
+        stack.push("hello, world,java is difficult,I learn some from Internet,I must learn more!!!");
+        System.out.println(stack.peek());
+    }
+}
