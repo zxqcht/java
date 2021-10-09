@@ -1,0 +1,71 @@
+import java.util.Scanner;
+public class College {
+    public String name;
+    public double grade1,grade2,grade3;
+    public double average;
+    public static void main(String[] arges) {
+        System.out.println("1.本科 2.研究生");
+        Scanner scan = new Scanner(System.in);
+        int c = scan.nextInt();
+        if (c == 1) {
+            System.out.println("请输入本科学生姓名，三科成绩");
+            Scanner scan0 = new Scanner(System.in);
+            Scanner scan1 = new Scanner(System.in);
+            Scanner scan2 = new Scanner(System.in);
+            Scanner scan3 = new Scanner(System.in);
+            String n0=scan0.nextLine();
+            double g1=scan1.nextDouble();
+            double g2=scan2.nextDouble();
+            double g3=scan3.nextDouble();
+            Undergraduate s1=new Undergraduate(n0,g1,g2,g3);
+            s1.isGet();
+        }
+        if (c == 2) {
+            System.out.println("请输入研究生学生姓名，三科成绩");
+            Scanner scan0 = new Scanner(System.in);
+            Scanner scan1 = new Scanner(System.in);
+            Scanner scan2 = new Scanner(System.in);
+            Scanner scan3 = new Scanner(System.in);
+            String n0=scan0.nextLine();
+            double g1=scan1.nextDouble();
+            double g2=scan2.nextDouble();
+            double g3=scan3.nextDouble();
+            Postgraduate s2=new Postgraduate(n0,g1,g2,g3);
+            s2.isGet();
+        }
+    }
+}
+class Undergraduate extends College{
+    Undergraduate(String s,double grade1,double grade2,double grade3){
+        this.name=s;
+        this.grade1=grade1;
+        this.grade2=grade2;
+        this.grade3=grade3;
+        this.average=(grade1+grade2+grade3)/3;
+    }
+    public void isGet(){
+        if(this.average>=60){
+            System.out.println(this.name+"通过");
+        }
+        else{
+            System.out.println(this.name+"不通过");
+        }
+    }
+}
+class Postgraduate extends College{
+    Postgraduate(String s,double grade1,double grade2,double grade3){
+        this.name=s;
+        this.grade1=grade1;
+        this.grade2=grade2;
+        this.grade3=grade3;
+        this.average=(grade1+grade2+grade3)/3;
+    }
+    public void isGet(){
+        if(this.average>=70){
+            System.out.println(this.name+"通过");
+        }
+        else{
+            System.out.println(this.name+"不通过");
+        }
+    }
+}
