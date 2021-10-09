@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Student {
+    public String name;
+    private int ID;
+    private int number;
+    public int grade;
+
+    public int getID() {
+        return ID;
+    }
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+    public Student(String name, int ID,int grade){
+        this.name=name;
+        this.ID=ID;
+        this.number=3;
+        this.grade=grade;
+    }
+    public Student(){
+
+    }
+    public static void main(String[] args){
+        Student s1=new Student("张三",202001,90);
+        Student s2=new Student("李四",202002,100);
+        Student s3=new Student("王五",202003,80);
+        System.out.println("请输入学生姓名:");
+        Scanner sc=new Scanner(System.in);
+        String student1=sc.nextLine();
+        if(student1.equals(s1.name)){
+             System.out.println("学号为:"+s1.getID()+" 成绩为:"+s1.grade);
+        }
+        if(student1.equals(s2.name)){
+            System.out.println("学号为:"+s2.ID+" 成绩为"+s2.grade);
+        }
+        if(student1.equals(s3.name)){
+            System.out.println("学号为:"+s3.ID+" 成绩为"+s3.grade);
+        }
+        System.out.println("是否修改学生姓名:0.不修改，1.修改");
+        Scanner a=new Scanner(System.in);
+        int c=a.nextInt();
+        if(c==0){
+            System.out.println("退出");
+        }
+        if(c==1){
+            System.out.println("想修改的学生姓名");
+            Scanner s0=new Scanner(System.in);
+            String q=s0.nextLine();
+            System.out.println("修改为");
+            Scanner ss=new Scanner(System.in);
+            String p=ss.nextLine();
+            if(q.equals(s1.name)){
+                s1.name=p;
+                System.out.println("修改成功");
+            }
+            if(q.equals(s2.name)){
+                s2.name=p;
+                System.out.println("修改成功");
+            }
+            if(q.equals(s3.name)){
+                s3.name=p;
+                System.out.println("修改成功");
+            }
+        }
+        System.out.println("学生为:"+s1.name+" "+s2.name+" "+s3.name);
+        int av=(s1.grade+s2.grade+s3.grade)/3;
+        System.out.println("所有人的平均成绩为"+av);
+    }
+
+}
