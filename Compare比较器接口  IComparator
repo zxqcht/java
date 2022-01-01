@@ -1,0 +1,5 @@
+package Compare;
+
+public interface IComparator<T> {
+    public int compare1(T a,T b);
+}
