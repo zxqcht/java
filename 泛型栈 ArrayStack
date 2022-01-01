@@ -1,0 +1,44 @@
+package genericStack;
+
+public class ArrayStack <T>{
+    private  int N;
+    private  Object[] a;
+    private  int top;
+
+    public ArrayStack(int num){
+        this.N=num;
+        this.a=new Object[num];
+        this.top=-1;
+    }
+
+    public  void push(T t){
+        if (top<N-1){
+            top++;
+            a[top]=t;
+        }
+        else{System.out.println("栈满");}
+    }
+
+    public T pop() {
+        T value;
+        if (top > -1) {
+            value = (T) a[top];
+            top--;
+            return value;
+        } else {
+            System.out.println("栈空");
+            return null;
+        }
+    }
+    public void display(){
+        if(top==-1){
+            System.out.println("栈空");
+        }
+        else if (top>-1){
+            for(int i=0;i<top+1;i++){
+                System.out.println(a[i]);
+            }
+        }
+    }
+
+}
