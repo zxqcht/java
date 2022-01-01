@@ -1,0 +1,13 @@
+package genericStack;
+
+public class Test {
+        public static void main(String[] args) {
+            ArrayStack<Integer> integerStack=new ArrayStack<>(5);
+            integerStack.push(111);
+            integerStack.push(222);
+            integerStack.pop();
+            integerStack.push(333);
+            integerStack.display();
+        }
+}
+
