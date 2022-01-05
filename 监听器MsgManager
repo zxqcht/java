@@ -1,0 +1,40 @@
+package Event;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MsgManager{
+    static List<MsgListener> subs = new ArrayList<MsgListener>();
+
+    public static void addListener(MsgListener listener){
+        subs.add(listener);
+    }
+    public static void sendMsg(MsgEvent event) throws Exception{
+        notifyListeners(event);
+    }
+    public static void notifyListeners(MsgEvent event) throws Exception{
+        for(MsgListener listener : subs){
+            listener.handleMsg(event);
+        }
+    }
+
+    public static void main(String[] args){
+        try{
+            MsgManager.addListener(new MsgListener() {
+                @Override
+                public void handleMsg(MsgEvent event) throws Exception {
+                    System.out.println("MsgListenerA,"+event.getStatus());
+                }
+            });
+            MsgManager.addListener(new MsgListener() {
+                @Override
+                public void handleMsg(MsgEvent event) throws Exception {
+                    System.out.println("MsgListenerB,"+event.getStatus());
+                }
+            });
+            MsgEvent msg = new MsgEvent("test",11);
+            sendMsg(msg);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+}
