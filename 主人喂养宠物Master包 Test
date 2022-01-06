@@ -1,0 +1,14 @@
+package master;
+
+public class Test {
+    public static void main(String[] args){
+        Master m=new Master();
+        m.feed(new Dog());
+        m.feed(new Cat());
+    }
+}
+//Master 主人类面向的是一个抽象的Pet，不再面向具体的宠物
+//面向抽象编程的好处是：耦合度低，扩展性强。
+
+//多态的作用： 降低程序的耦合度，提高程序的扩展力       父类型引用指向子类型对象
+//核心：面向对象编程，尽量不要面向具体编程。
